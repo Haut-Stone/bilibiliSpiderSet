@@ -1,0 +1,4 @@
+# Ignore generated files and directories.
+
+*.egg-info/
+dist/
