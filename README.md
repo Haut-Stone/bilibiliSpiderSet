@@ -72,4 +72,5 @@ liveBg '直播间的url'
 - [学习实例（感谢这位大牛）](https://github.com/twocucao/danmu.fm)
 - [完整处理过程](http://www.jianshu.com/p/eb27d5cb5e1d)
 - [click库](http://click.pocoo.org/5/)
+- [Click库的使用方法](https://segmentfault.com/a/1190000007858815)
 - [如何使用github标签](http://blog.csdn.net/yangbodong22011/article/details/51791085)
