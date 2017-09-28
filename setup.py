@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # @Author: li
 # @Date:   2017-09-25 14:25:42
-# @Last Modified by:   li
-# @Last Modified time: 2017-09-25 20:11:20
+# @Last Modified by:   Haut-Stone
+# @Last Modified time: 2017-09-28 20:05:55
 from setuptools import setup, find_packages
 
-VERSION = '0.1.9'
+VERSION = '0.1.10'
 
 setup(
     name='bilibiliSpiderSet',

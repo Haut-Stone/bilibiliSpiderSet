@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # @Author: li
 # @Date:   2017-09-25 14:32:15
-# @Last Modified by:   li
-# @Last Modified time: 2017-09-25 19:33:54
+# @Last Modified by:   Haut-Stone
+# @Last Modified time: 2017-09-28 20:12:06
 from bs4 import BeautifulSoup
 import requests
 import re
@@ -205,7 +205,10 @@ class ArticelImageSpider():
 			return None
 		else:
 			img_url = self.analysis(response)
-			return img_url
+			info = {
+				'img_url':img_url
+			}
+			return info
 
 
 class FuckBilibiliSpider():
