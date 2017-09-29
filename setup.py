@@ -2,15 +2,15 @@
 # @Author: li
 # @Date:   2017-09-25 14:25:42
 # @Last Modified by:   Haut-Stone
-# @Last Modified time: 2017-09-28 20:05:55
+# @Last Modified time: 2017-09-28 22:51:36
 from setuptools import setup, find_packages
 
-VERSION = '0.1.10'
+VERSION = '0.1.12'
 
 setup(
     name='bilibiliSpiderSet',
     version=VERSION,
-    description='a set of bilibiliSpider',
+    description='A set of useful bilibili spider',
     author='Jiahuan Shi',
     author_email='redstonerock149@gmail.com',
     url='https://github.com/Haut-Stone',

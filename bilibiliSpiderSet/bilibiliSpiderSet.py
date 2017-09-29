@@ -2,7 +2,7 @@
 # @Author: li
 # @Date:   2017-09-25 14:32:15
 # @Last Modified by:   Haut-Stone
-# @Last Modified time: 2017-09-28 20:12:06
+# @Last Modified time: 2017-09-28 22:50:46
 from bs4 import BeautifulSoup
 import requests
 import re
@@ -125,13 +125,25 @@ class UpInfoSpider():
 # 爬取直播界面的背景图片，并保存
 class Xspider():
 
-	def main(self, url):
+	def main(self, url, save):
 		response = self.request(url)
 		if response == None:
 			print("没有获取到任何信息哦")
 		else:
 			soup = self.analysis(response)
-			self.get_bg(soup, url)
+			if save:
+				self.save_bg(soup, url)
+			else:
+				bg_info = soup.find('div', class_='bk-img w-100 h-100')
+				if bg_info == None:
+					print("这个页面被锁定了，里面没有信息")
+				else:
+					bg_link = bg_info['style'][22:-1]
+					if bg_link[0] == '/':
+						bg_link = 'https:' + bg_link
+						return {'bglink':bg_link}
+					else:
+						print('这个图片是bilibili官方提供的，被跳过了 = = ')
 
 	def request(self, url):
 		headers = {'User-Agent':'Mozilla/5.0'}
@@ -147,7 +159,7 @@ class Xspider():
 		soup = BeautifulSoup(response, 'lxml')
 		return soup
 
-	def get_bg(self, soup, url):
+	def save_bg(self, soup, url):
 		name = url.split('/')[-1]
 		# 这里的路径改成本机路径就可以使用了
 		path = '/Users/li/Desktop/' + name + '.jpg'
@@ -205,9 +217,7 @@ class ArticelImageSpider():
 			return None
 		else:
 			img_url = self.analysis(response)
-			info = {
-				'img_url':img_url
-			}
+			info = {'img_url':img_url}
 			return info
 
 
@@ -259,7 +269,7 @@ class FuckBilibiliSpider():
 cookies = {
 	'DedeUserID': '221013145',
 	'DedeUserID__ckMd5': '0ada37d8e37bee1f',
-	'SESSDATA': 'c69007a0%2C1506332806%2Cb2a5e851'
+	'SESSDATA': 'ddff3d5b%2C1508937653%2C5dc59211'
 }
 
 

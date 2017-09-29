@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # @Author: li
 # @Date:   2017-09-25 19:10:55
-# @Last Modified by:   li
-# @Last Modified time: 2017-09-25 20:06:12
+# @Last Modified by:   Haut-Stone
+# @Last Modified time: 2017-09-28 22:20:29
 
 from .bilibiliSpiderSet import AVInfoSpider, ArticelImageSpider
 from .bilibiliSpiderSet import Xspider, UpInfoSpider
@@ -70,10 +70,15 @@ def get_live_background():
 
 	parser = argparse.ArgumentParser()
 	parser.add_argument('room_url', type=str, help='input room url to get cover')
+	parser.add_argument('-s', '--save', type=str, choices=['T', 'F'], help='inp\
+						ut save path to save background (default : desktop)')
 	args = parser.parse_args()
-
+	if args.save == 'T':
+		save = True
+	else:
+		save = False
 	spider = Xspider()
-	link = spider.main(args.room_url)
+	link = spider.main(args.room_url,save)
 	if link != None:
 		print(link)
 
