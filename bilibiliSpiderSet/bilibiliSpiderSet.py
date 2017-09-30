@@ -2,8 +2,9 @@
 # @Author: li
 # @Date:   2017-09-25 14:32:15
 # @Last Modified by:   Haut-Stone
-# @Last Modified time: 2017-09-28 22:50:46
+# @Last Modified time: 2017-09-30 09:56:45
 from bs4 import BeautifulSoup
+from info import cookies 
 import requests
 import re
 import os
@@ -266,11 +267,6 @@ class FuckBilibiliSpider():
 
 
 
-cookies = {
-	'DedeUserID': '221013145',
-	'DedeUserID__ckMd5': '0ada37d8e37bee1f',
-	'SESSDATA': 'ddff3d5b%2C1508937653%2C5dc59211'
-}
 
 
 
