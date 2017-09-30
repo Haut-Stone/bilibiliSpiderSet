@@ -74,3 +74,7 @@ liveBg '直播间的url'
 - [click库](http://click.pocoo.org/5/)
 - [Click库的使用方法](https://segmentfault.com/a/1190000007858815)
 - [如何使用github标签](http://blog.csdn.net/yangbodong22011/article/details/51791085)
+
+## 作者
+
+[@Haut-Stone](https://github.com/Haut-Stone)由☕️，，🍛和🍖强力驱动
