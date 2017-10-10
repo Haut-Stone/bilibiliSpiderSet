@@ -2,58 +2,14 @@
 # @Author: li
 # @Date:   2017-09-25 19:10:55
 # @Last Modified by:   Haut-Stone
-# @Last Modified time: 2017-09-28 22:20:29
+# @Last Modified time: 2017-10-10 22:08:34
 
-from .bilibiliSpiderSet import AVInfoSpider, ArticelImageSpider
-from .bilibiliSpiderSet import Xspider, UpInfoSpider
-from .bilibiliSpiderSet import LiveCoverSpider, FuckBilibiliSpider
-from .bilibiliSpiderSet import cookies
 import argparse
+import click
 
-
-def get_av_info():
-
-	parser = argparse.ArgumentParser()
-	parser.add_argument('av_number', type=int, help='input av number to get info')
-	args = parser.parse_args()
-
-	spider = AVInfoSpider()
-	info = spider.get_Info(args.av_number)
-	if info != None:
-		print(info)
-
-def get_av_cover():
-
-	parser = argparse.ArgumentParser()
-	parser.add_argument('av_number', type=int, help='input av number to get cover')
-	args = parser.parse_args()
-
-	spider = AVInfoSpider()
-	link = spider.get_cover_link(args.av_number)
-	if link != None:
-		print(link)
-
-def get_articel_cover():
-
-	parser = argparse.ArgumentParser()
-	parser.add_argument('url', type=str, help='input articel to get cover')
-	args = parser.parse_args()
-
-	spider = ArticelImageSpider()
-	link = spider.main(args.url)
-	if link != None:
-		print(link)
-
-def get_live_cover():
-
-	parser = argparse.ArgumentParser()
-	parser.add_argument('room_id', type=int, help='input room_id to get cover')
-	args = parser.parse_args()
-
-	spider = LiveCoverSpider()
-	link = spider.get_cover_link(args.room_id)
-	if link != None:
-		print(link)
+from .spider_set import Xspider, UpInfoSpider
+from .spider_set import CoverSpider
+from .color_logger import Logger
 
 def get_up_info():
 
@@ -64,7 +20,12 @@ def get_up_info():
 	spider = UpInfoSpider()
 	info = spider.get_top_20_up_info(args.up_name)
 	if info != None:
-		print(info)
+		ups = info['upusers']
+		for up in ups:
+			Logger.ok(up['name'])
+			Logger.ok(up['video_num'])
+			Logger.ok(up['fans_num'])
+			Logger.ok(up['img_url'])
 
 def get_live_background():
 
@@ -80,15 +41,15 @@ def get_live_background():
 	spider = Xspider()
 	link = spider.main(args.room_url,save)
 	if link != None:
-		print(link)
+		Logger.ok(link['bglink'])
 
-def get_av_cover_vip():
+@click.command()
+@click.argument('url', type=str, required=True)
+def get_cover(url):
 
-	parser = argparse.ArgumentParser()
-	parser.add_argument('av_number', type=int, help='input av_number to get cover')
-	args = parser.parse_args()
-
-	spider = FuckBilibiliSpider()
-	info = spider.get_Info(args.av_number, cookies=cookies)
-	if info != None:
-		print(info)
+	spider = CoverSpider()
+	info = spider.get(url)
+	if 'error' in info.keys():
+		Logger.fail(info['error'])
+	else:
+		Logger.ok(info['cover_link'])

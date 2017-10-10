@@ -64,6 +64,15 @@ upInfo 'up的名字'
 liveBg '直播间的url'
 ```
 
+## 让程序使用它
+
+当然，你还可以直接让你的程序调用`bilibiliSpiderSet`中的爬虫类，创建爬虫实例，从而在程序中运用爬虫集合中的爬虫。
+例如你可以这样去新建一个爬虫对象
+```python
+spider = AVInfoSpider()
+info = spider.get_Info(av_number)
+```
+这里的所有爬虫类中的方法都会返回标准的字典建值对，方便我们将数据打包成json文件
 ## 感谢
 
 - [读取命令行参数](http://wiki.jikexueyuan.com/project/explore-python/Standard-Modules/argparse.html)
