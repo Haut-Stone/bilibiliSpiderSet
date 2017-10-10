@@ -18,38 +18,13 @@ pip3 install bilibiliSpiderSet
 
 ### 使用方法
 
->现在这个爬虫合集一共有六只爬虫，另外还有爬取会员的世界的爬虫正在测试中。
+>现在这个爬虫合集一共有3只爬虫.
 
 下面的代码都是直接在终端里输入就可以了。举个例子，如果我想获得av7视频的封面，那么我只用在终端中
-，直接输入下面这个一行代码，av7的封面地址就会直接被终端打印出来了。
+，直接输入下面这个一行代码，av7的封面地址就会直接被终端打印出来了。`cover命令现在可以支持视频（包括会员的世界），直播，专栏的封面链接获取`
 
 ```bash
-avCover 7
-```
-![](使用演示.gif)
-
-获取普通投稿视频的信息（会员的世界和番剧除外）
-
-```bash
-avInfo '视频的av号'
-```
-
-获取普通投稿视频的封面
-
-```bash
-avCover '视频的av号'
-```
-
-获取bilibili专栏文章的封面
-
-```bash
-articleCover '专栏文章的url'
-```
-
-获取直播间的封面
-
-```bash
-liveCover '直播间的房间号'
+cover https://www.bilibili.com/video/av7/
 ```
 
 获取符合条件的前20个up的信息
@@ -69,8 +44,8 @@ liveBg '直播间的url'
 当然，你还可以直接让你的程序调用`bilibiliSpiderSet`中的爬虫类，创建爬虫实例，从而在程序中运用爬虫集合中的爬虫。
 例如你可以这样去新建一个爬虫对象
 ```python
-spider = AVInfoSpider()
-info = spider.get_Info(av_number)
+spider = CoverSpider()
+info = spider.get('https://www.bilibili.com/video/av7/')
 ```
 这里的所有爬虫类中的方法都会返回标准的字典建值对，方便我们将数据打包成json文件
 ## 感谢
