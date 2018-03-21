@@ -2,7 +2,7 @@
 # @Author: li
 # @Date:   2017-09-25 14:25:42
 # @Last Modified by:   Haut-Stone
-# @Last Modified time: 2017-10-10 22:09:22
+# @Last Modified time: 2018-03-21 20:38:08
 from setuptools import setup, find_packages
 
 VERSION = '0.1.22'
@@ -16,7 +16,8 @@ setup(
     url='https://github.com/Haut-Stone',
     packages=['bilibiliSpiderSet'],
     include_package_data=True,
-    install_requires=['requests>=2.12.4','beautifulsoup4>=4.5.1','html5lib>=0.999999999','click'],
+    install_requires=['requests>=2.12.4', 'beautifulsoup4>=4.5.1',
+                      'html5lib>=0.999999999', 'click'],
     license='MIT License',
     zip_safe=False,
     entry_points={
