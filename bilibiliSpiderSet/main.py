@@ -2,11 +2,10 @@
 # @Author: li
 # @Date:   2017-09-25 19:10:55
 # @Last Modified by:   Haut-Stone
-# @Last Modified time: 2018-03-21 20:37:34
+# @Last Modified time: 2018-03-21 21:18:06
 
 import argparse
 import click
-
 from .spider_set import Xspider, UpInfoSpider
 from .spider_set import CoverSpider
 from .color_logger import Logger

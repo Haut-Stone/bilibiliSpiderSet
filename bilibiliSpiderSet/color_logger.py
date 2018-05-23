@@ -2,7 +2,7 @@
 # @Author: Haut-Stone
 # @Date:   2017-10-05 13:31:08
 # @Last Modified by:   Haut-Stone
-# @Last Modified time: 2018-03-21 20:30:54
+# @Last Modified time: 2018-03-21 21:21:17
 
 
 class Logger():
@@ -16,6 +16,7 @@ class Logger():
     RED = '\033[91m'
     ENDC = '\033[0m'
 
+    # 无需实例化即可使用
     @staticmethod
     def ok(info):
         print(Logger.GREEN + info + Logger.ENDC)

@@ -2,10 +2,10 @@
 # @Author: li
 # @Date:   2017-09-25 14:25:42
 # @Last Modified by:   Haut-Stone
-# @Last Modified time: 2018-03-21 20:38:08
+# @Last Modified time: 2018-03-21 20:42:40
 from setuptools import setup, find_packages
 
-VERSION = '0.1.22'
+VERSION = '0.1.23'
 
 setup(
     name='bilibiliSpiderSet',
